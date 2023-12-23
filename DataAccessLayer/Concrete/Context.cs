@@ -16,17 +16,17 @@ namespace DataAccessLayer.Concrete
             optionsBuilder.UseSqlServer("SERVER=DESKTOP-I6RBC1D;database=TraversalDB;integrated security=true;Trusted_Connection=True; MultipleActiveResultSets=true; Encrypt=False;");
         }
 
-        public DbSet<About> Abouts { get; set; } // veritabanındaki tablonun ismi
-        public DbSet<About2> About2s { get; set; }
-        public DbSet<Contact> Contacts { get; set; }
-        public DbSet<Destination> Destinations { get; set; }
-        public DbSet<Feature> Features { get; set; }
-        public DbSet<Feature2> Feature2s { get; set; }
-        public DbSet<Guide> Guides { get; set; }
-        public DbSet<NewsLetter> NewsLetters { get; set; }
-        public DbSet<SubAbout> SubAbouts { get; set; }
-        public DbSet<Testimonial> Testimonials { get; set; }
-        public DbSet<Comment> Comments { get; set; }
-        public DbSet<Rezervasyon> Rezervasyons { get; set; }
+        public DbSet<About> Aboutss { get; set; } // veritabanındaki tablonun ismi
+        public DbSet<About2> About2ss { get; set; }
+        public DbSet<Contact> Contactss { get; set; }
+        public DbSet<Destination> Destinationss { get; set; }
+        public DbSet<Feature> Featuress { get; set; }
+        public DbSet<Feature2> Feature2ss { get; set; }
+        public DbSet<Guide> Guidess { get; set; }
+        public DbSet<NewsLetter> NewsLetterss { get; set; }
+        public DbSet<SubAbout> SubAboutss { get; set; }
+        public DbSet<Testimonial> Testimonialss { get; set; }
+        public DbSet<Comment> Commentss { get; set; }
+        public DbSet<Rezervasyon> Rezervasyonss { get; set; }
     }
 }
