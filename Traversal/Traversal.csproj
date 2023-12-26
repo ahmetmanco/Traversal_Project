@@ -31,6 +31,13 @@
 
   <ItemGroup>
     <Folder Include="Areas\Member\Data\" />
+    <Folder Include="Views\Shared\Components\_Testimonial\" />
+    <Folder Include="Views\Shared\Components\_SubAbout\" />
+    <Folder Include="Views\Shared\Components\_Statistics\" />
+    <Folder Include="Views\Shared\Components\_SliderPartial\" />
+    <Folder Include="Views\Shared\Components\_PopularDestinations\" />
+    <Folder Include="Views\Shared\Components\_Feature\" />
+    <Folder Include="Views\Shared\Components\_CommentList\" />
   </ItemGroup>
 
 </Project>

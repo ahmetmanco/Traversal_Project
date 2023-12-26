@@ -21,18 +21,22 @@ namespace Traversal.Areas.Member.Controllers
         }
 
         [HttpGet]
-        public IActionResult MyCurrentRezervasyon()
+        public async Task<IActionResult> MyCurrentRezervasyon()
         {
-            return View();
+            var value = await _userManager.FindByNameAsync(User.Identity.Name);
+            var valuesList = rezervasyonManager.GetListWithRezervasyonByAccepted(value.Id);
+            return View(valuesList);
         }
-        public IActionResult MyOldRezervasyon(Rezervasyon rezervasyon)
+        public async Task<IActionResult> MyOldRezervasyon(Rezervasyon rezervasyon)
         {
-            return View();
+            var value = await _userManager.FindByNameAsync(User.Identity.Name);
+            var valuesList = rezervasyonManager.GetListWithRezervasyonByPrevious(value.Id);
+            return View(valuesList);
         }
         public async Task<IActionResult> MyApprovalRezervasyon()
         {
             var value = await _userManager.FindByNameAsync(User.Identity.Name);
-            var valuesList = rezervasyonManager.GetListApprovalRezervasyon(value.Id);
+            var valuesList = rezervasyonManager.GetListWithRezervasyonByWaitAprroval(value.Id);
             return View(valuesList);
         }
         [HttpGet]
