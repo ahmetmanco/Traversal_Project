@@ -14,10 +14,10 @@ namespace Traversal.ViewComponents.MemberDashBoard
             _userManager = userManager;
         }
 
-        public async Task<IViewComponentResult> Invoke()
+        public async Task<IViewComponentResult> InvokeAsync()
         {
             var values = await _userManager.FindByNameAsync(User.Identity.Name);
-            ViewBag.memberName = values.Name;
+            ViewBag.memberName = values.Name + " " + values.Surname;
             ViewBag.memberPhone = values.PhoneNumber;
             ViewBag.memberMail = values.Email;
             return View();
