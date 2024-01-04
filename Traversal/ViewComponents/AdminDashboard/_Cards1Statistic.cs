@@ -10,6 +10,7 @@ namespace Traversal.ViewComponents.AdminDashboard
         {
             ViewBag.v1 = c.Destinationss.Count();
             ViewBag.v2 = c.Users.Count();
+           
             return View();
         }
     }
