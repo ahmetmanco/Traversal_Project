@@ -1,6 +1,7 @@
 ﻿using BussinessLayer.Abstract;
 using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,17 +26,17 @@ namespace BussinessLayer.Concrete
 
         public void TDelete(Comment t)
         {
-            throw new NotImplementedException();
+            _commentDal.Delete(t);
         }
 
         public Comment TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _commentDal.GetById(id);
         }
 
         public List<Comment> TGetList()
         {
-            throw new NotImplementedException();
+            return _commentDal.GetList();
         }
         public List<Comment> TGetdestinationById(int id)
         {
@@ -46,5 +47,11 @@ namespace BussinessLayer.Concrete
         {
             throw new NotImplementedException();
         }
+
+        public List<Comment> TGetListCommentwithDestination()
+        {
+            return _commentDal.GetListCommentwithDestination();
+        }
+        
     }
 }
