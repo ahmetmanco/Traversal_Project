@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Traversal.ViewComponents.Default
 {
-    public class _Istatistikler : ViewComponent
+    public class _Statistics : ViewComponent
     {
         public IViewComponentResult Invoke()
         {
