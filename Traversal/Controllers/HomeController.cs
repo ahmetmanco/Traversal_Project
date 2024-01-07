@@ -15,12 +15,19 @@ namespace Traversal.Controllers
 
         public IActionResult Index()
         {
+            _logger.LogInformation("Index Sayfasý çaðrýldý");
             return View();
         }
 
         public IActionResult Privacy()
         {
+            DateTime d = Convert.ToDateTime(DateTime.Now.ToLongDateString());
+            _logger.LogInformation(d + "Privacy Sayfasý çaðrýldý");
             return View();
+        }
+        public IActionResult Test()
+        {
+            _logger.LogInformation("Test Sayfasý çaðrýldý"); return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
