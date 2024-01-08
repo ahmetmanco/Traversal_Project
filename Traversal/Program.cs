@@ -36,6 +36,9 @@ builder.Services.AddScoped<IRezervasyonService, RezervasyonManager>();
 builder.Services.AddScoped<IRezervasyonDal, EFRezervasyonDal>();
 
 builder.Services.AddScoped<IGuideService, GuideManager>();
+builder.Services.AddScoped<IPdfService, PdfManager>();
+
+builder.Services.AddScoped<IExcelService, ExcelManager>();
 builder.Services.AddScoped<IGuidDal, EFGuideDal>();
 // Add services to the container.
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation(); ;
