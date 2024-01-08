@@ -20,7 +20,7 @@
         <th>Açıklama</th>
         <th>Durum</th>
         <th>Düzenle</th>
-        <th></th>
+        <th>Sil</th>
     </tr>
     @foreach(var item in Model)
     {
@@ -33,14 +33,15 @@
             
             @if (item.Status == true)
             {
-                <td><a href="#" class="btn btn-success">Pasif Yap</a></td>
+                <td><a href="/Admin/Guide/ChangeToFalse/@item.Id" class="btn btn-success">Pasif Yap</a></td>
             }
             else
             {
-                <td><a href="#" class="btn btn-success">Aktif Yap</a></td>
+                <td><a href="/Admin/Guide/ChangeToTrue/@item.Id" class="btn btn-success">Aktif Yap</a></td>
             }
 
-            <td><a href="#" class="btn btn-outline-success">Düzenle</a></td>
+            <td><a href="/Admin/Guide/EditGuide/" class="btn btn-success">Düzenle</a></td>
+            <td><a href="/Admin/Guide/Index/" class="btn btn-warning">Sil</a></td>
         </tr>
     }
 </table>
