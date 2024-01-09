@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<h2>Şehir Ülke İşlemleri</h2>
+<br />
+<button type="button" id="btngetList" class="btn btn-info" >Şehir Listesi</button>
+<button type="button" id="btngetbyId" class="btn btn-primary" >Şehir Getir</button>
+<button type="button" id="btnaddcity" class="btn btn-warning">Şehir Ekle</button>
+<button type="button" id="btndeletecity" class="btn btn-danger">Şehir Sil</button>
+<button type="button" id="btnupdatecity" class="btn btn-success">Şehir Güncelle</button>
+<br /><br />
+<div id="cityList" >
+    
+</div>
+<script>
+    $("#btngetList").click(
+        Function(){
+        $.ajax({
+            contentType: "application/json",
+            dataType: "json",
+            type: "Get",
+            url: "/Admin/City/CityList/",
+            success: function (func) {
+                let w = jQuery.parseJSON(func);
+                console.log(w);
+                let tablehtml = "<table class=table table-bordered> <tr><th>ŞehirID</th><th>Şehir Adı</th><th>Ülke Adı</th></tr> </table>";
+                $.each(w, (index, value) => { tablehtml += `<tr><td>${value.Id}</td><td>${value.CityName}</td><td>${value.CityCountry}</td></tr>` });
+                tablehtml += "</table>";
+                $("#cityList").html(tablehtml);
+            }
+        });
+    });
+</script>
