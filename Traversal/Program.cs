@@ -1,9 +1,13 @@
 using BussinessLayer.Abstract;
 using BussinessLayer.Concrete;
+using BussinessLayer.ValidationRules;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EF;
+using DTOLayer.DTOs.AnnouncementDTOs;
 using EntityLayer.Concrete;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Traversal.Models;
@@ -44,7 +48,10 @@ builder.Services.AddScoped<IGuidDal, EFGuideDal>();
 builder.Services.AddScoped<IContactUsService, ContactUsManager>();
 builder.Services.AddScoped<IContactUsDal, EFContactUsDal>();
 // Add services to the container.
-builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation(); ;
+builder.Services.AddControllersWithViews().AddFluentValidation().AddRazorRuntimeCompilation(); 
+
+builder.Services.AddAutoMapper(typeof(StartupBase));
+builder.Services.AddTransient<IValidator<AnnouncementAddDTO>, AnnouncementValidator>();
 
 builder.Services.AddMvc(config =>
 {
