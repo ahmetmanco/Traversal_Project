@@ -11,7 +11,7 @@ namespace BussinessLayer.Concrete
 {
     public class DestinationManager : IDestinationService
     {
-        IDestinationDal _destinationDal;
+        private readonly IDestinationDal _destinationDal;
 
         public DestinationManager(IDestinationDal destinationDal)
         {
@@ -38,7 +38,6 @@ namespace BussinessLayer.Concrete
         {
             return _destinationDal.GetList();
         }
-
         public void TUpdate(Destination t)
         {
             _destinationDal.Update(t);
