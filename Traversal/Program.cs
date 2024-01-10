@@ -47,6 +47,9 @@ builder.Services.AddScoped<IGuidDal, EFGuideDal>();
 
 builder.Services.AddScoped<IContactUsService, ContactUsManager>();
 builder.Services.AddScoped<IContactUsDal, EFContactUsDal>();
+
+builder.Services.AddScoped<IAnnouncementService, AnnouncementManager>();
+builder.Services.AddScoped<IAnnouncementDal, EFAnnountcementDal>();
 // Add services to the container.
 builder.Services.AddControllersWithViews().AddFluentValidation().AddRazorRuntimeCompilation(); 
 

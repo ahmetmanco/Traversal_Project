@@ -1,5 +1,8 @@
 ﻿using BussinessLayer.Abstract;
+using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using Traversal.Areas.Admin.Models;
 
 namespace Traversal.Areas.Admin.Controllers
 {
@@ -16,8 +19,18 @@ namespace Traversal.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            var value = _announcementService.TGetList();
-            return View(value);
+            List<Announcement> announcements = _announcementService.TGetList();
+            List<AnnouncementListViewModel> model = new List<AnnouncementListViewModel>();
+            foreach(var item in announcements)
+            {
+                AnnouncementListViewModel announcementListViewModel = new AnnouncementListViewModel();
+                announcementListViewModel.Id = item.Id;
+                announcementListViewModel.Title = item.Title;
+                announcementListViewModel.Content = item.Content;
+
+                model.Add(announcementListViewModel);
+            }
+            return View(model);
         }
         [HttpGet]
         public IActionResult AddAnnouncement()
