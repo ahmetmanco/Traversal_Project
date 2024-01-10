@@ -28,5 +28,6 @@ namespace DataAccessLayer.Concrete
         public DbSet<Testimonial> Testimonialss { get; set; }
         public DbSet<Comment> Commentss { get; set; }
         public DbSet<Rezervasyon> Rezervasyonss { get; set; }
+        public DbSet<ContactUs> ContactUses { get; set; }
     }
 }

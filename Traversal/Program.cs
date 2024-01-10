@@ -40,6 +40,9 @@ builder.Services.AddScoped<IPdfService, PdfManager>();
 
 builder.Services.AddScoped<IExcelService, ExcelManager>();
 builder.Services.AddScoped<IGuidDal, EFGuideDal>();
+
+builder.Services.AddScoped<IContactUsService, ContactUsManager>();
+builder.Services.AddScoped<IContactUsDal, EFContactUsDal>();
 // Add services to the container.
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation(); ;
 

@@ -112,19 +112,19 @@ namespace DataAccessLayer.Migrations
                 name: "Destinationss",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: true)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     City = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DayNight = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<double>(type: "float", nullable: false),
-                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Destcription = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Destcription = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Capacity = table.Column<int>(type: "int", nullable: false),
-                    Status = table.Column<bool>(type: "bit", nullable: false),
-                    CoverImage = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Details1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Details2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Image2 = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Status = table.Column<bool>(type: "bit", nullable: true),
+                    CoverImage = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Details1 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Details2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Image2 = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
