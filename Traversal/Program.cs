@@ -1,12 +1,6 @@
-using BussinessLayer.Abstract;
-using BussinessLayer.Concrete;
-using BussinessLayer.ValidationRules;
-using DataAccessLayer.Abstract;
+using BussinessLayer.Ext;
 using DataAccessLayer.Concrete;
-using DataAccessLayer.EF;
-using DTOLayer.DTOs.AnnouncementDTOs;
 using EntityLayer.Concrete;
-using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
@@ -27,34 +21,17 @@ builder.Services.AddIdentity<AppUser, AppRole>()
     .AddErrorDescriber<CustomIdentityValidator>()
     .AddEntityFrameworkStores<Context>();
 
-builder.Services.AddScoped<ICommentService, CommentManager>();
-builder.Services.AddScoped<ICommentDal, EFCommentDal>();
+builder.Services.AddFluentValidation();
 
-builder.Services.AddScoped<IDestinationService, DestinationManager>();
-builder.Services.AddScoped<IDestinationDal, EFDestinationDal>();
-
-builder.Services.AddScoped<IAppUserDal, EFAppUserDal>();
-builder.Services.AddScoped<IAppUserService, AppUserManager>();
-
-builder.Services.AddScoped<IRezervasyonService, RezervasyonManager>();
-builder.Services.AddScoped<IRezervasyonDal, EFRezervasyonDal>();
-
-builder.Services.AddScoped<IGuideService, GuideManager>();
-builder.Services.AddScoped<IPdfService, PdfManager>();
-
-builder.Services.AddScoped<IExcelService, ExcelManager>();
-builder.Services.AddScoped<IGuidDal, EFGuideDal>();
-
-builder.Services.AddScoped<IContactUsService, ContactUsManager>();
-builder.Services.AddScoped<IContactUsDal, EFContactUsDal>();
-
-builder.Services.AddScoped<IAnnouncementService, AnnouncementManager>();
-builder.Services.AddScoped<IAnnouncementDal, EFAnnountcementDal>();
+builder.Services.ExtDependency();
+builder.Services.CustomValidator();
 // Add services to the container.
-builder.Services.AddControllersWithViews().AddFluentValidation().AddRazorRuntimeCompilation(); 
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
-builder.Services.AddAutoMapper(typeof(StartupBase));
-builder.Services.AddTransient<IValidator<AnnouncementAddDTO>, AnnouncementValidator>();
+
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
+
+
 
 builder.Services.AddMvc(config =>
 {
