@@ -4,7 +4,9 @@ using EntityLayer.Concrete;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Traversal.Models;
+using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +23,8 @@ builder.Services.AddIdentity<AppUser, AppRole>()
     .AddErrorDescriber<CustomIdentityValidator>()
     .AddEntityFrameworkStores<Context>();
 
+
+
 builder.Services.AddFluentValidation();
 
 builder.Services.ExtDependency();
@@ -28,7 +32,7 @@ builder.Services.CustomValidator();
 // Add services to the container.
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
-
+builder.Services.AddHttpClient();
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 
 
@@ -58,6 +62,12 @@ app.UseStatusCodePagesWithReExecute("/ErrorPage/Error404", "?code={0}");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+//if(!app.Environment.IsDevelopment())
+//{
+//    app.UseSpaStaticFiles();
+    
+//}
+
 app.UseAuthentication();
 app.UseRouting();
 
@@ -78,5 +88,16 @@ app.MapControllerRoute(
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+//app.UseSpa(spa =>
+//{
+//    spa.Options.SourcePath = "ClientApp";
+
+//    if (app.Environment.IsDevelopment())
+//    {
+//       //spa.UseAngularCliServer(npmScript: "start");
+//        spa.UseProxyToSpaDevelopmentServer("http://localhost:5016");
+//    }
+//});
 
 app.Run();
