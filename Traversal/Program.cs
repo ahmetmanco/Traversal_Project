@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Traversal.Models;
 using Microsoft.Extensions.Hosting;
+using Traversal.CQRS.Handlers.DestinationHandler;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,7 +25,7 @@ builder.Services.AddIdentity<AppUser, AppRole>()
     .AddEntityFrameworkStores<Context>();
 
 
-
+builder.Services.AddScoped<GetAllDestinationQueryHandler>();
 builder.Services.AddFluentValidation();
 
 builder.Services.ExtDependency();
