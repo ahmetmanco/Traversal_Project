@@ -9,7 +9,7 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="ClosedXML" Version="0.102.2" />
-    <PackageReference Include="EPPlus" Version="7.0.5" />
+    <PackageReference Include="EPPlus" Version="7.0.6" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
     <PackageReference Include="iTextSharp.LGPLv2.Core" Version="3.4.15" />
     <PackageReference Include="MailKit" Version="4.3.0" />
@@ -29,7 +29,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.0" />
-    <PackageReference Include="PrintUtilOfWPF" Version="0.6.0" />
     <PackageReference Include="Serilog.Extensions.Logging.File" Version="3.0.0" />
   </ItemGroup>
 
@@ -40,6 +39,7 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Member\Data\" />
+    <Folder Include="CQRS\Commands\" />
     <Folder Include="Views\Shared\Components\_Testimonial\" />
     <Folder Include="Views\Shared\Components\_SubAbout\" />
     <Folder Include="Views\Shared\Components\_Statistics\" />
