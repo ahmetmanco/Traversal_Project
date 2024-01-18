@@ -24,7 +24,7 @@ builder.Services.AddIdentity<AppUser, AppRole>()
     .AddErrorDescriber<CustomIdentityValidator>()
     .AddEntityFrameworkStores<Context>();
 
-
+builder.Services.AddScoped<GetDestinationByIdQueryHandler>();
 builder.Services.AddScoped<GetAllDestinationQueryHandler>();
 builder.Services.AddFluentValidation();
 

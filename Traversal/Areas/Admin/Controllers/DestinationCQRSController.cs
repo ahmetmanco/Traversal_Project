@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Traversal.CQRS.Handlers.DestinationHandler;
 using Traversal.CQRS.Queries.DestinationQuery;
 
 namespace Traversal.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [AllowAnonymous]
     public class DestinationCQRSController : Controller
     {
         private readonly GetAllDestinationQueryHandler _queryHandler;
@@ -21,7 +23,7 @@ namespace Traversal.Areas.Admin.Controllers
             var value = _queryHandler.Handle();
             return View(value);
         }
-
+        [HttpGet]
         public IActionResult GetDestination(int id)
         {
             var value = _queryIdHandler.Handle(new GetDestinationByIdQuery(id));
