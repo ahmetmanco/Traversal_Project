@@ -39,7 +39,6 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Member\Data\" />
-    <Folder Include="CQRS\Commands\" />
     <Folder Include="Views\Shared\Components\_Testimonial\" />
     <Folder Include="Views\Shared\Components\_SubAbout\" />
     <Folder Include="Views\Shared\Components\_Statistics\" />
