@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Traversal.Models;
 using Microsoft.Extensions.Hosting;
 using Traversal.CQRS.Handlers.DestinationHandler;
+using MediatR;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,8 +25,13 @@ builder.Services.AddIdentity<AppUser, AppRole>()
     .AddErrorDescriber<CustomIdentityValidator>()
     .AddEntityFrameworkStores<Context>();
 
+builder.Services.AddScoped<UpdateDestinationCommandHandler>();
+builder.Services.AddScoped<RemoveDestinationCommandHandler>();
+builder.Services.AddScoped<CreateDestinationCommandHandler>();
 builder.Services.AddScoped<GetDestinationByIdQueryHandler>();
 builder.Services.AddScoped<GetAllDestinationQueryHandler>();
+
+builder.Services.AddMediatR(typeof(Program));
 builder.Services.AddFluentValidation();
 
 builder.Services.ExtDependency();
