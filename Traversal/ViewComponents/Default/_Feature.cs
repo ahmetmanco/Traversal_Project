@@ -15,7 +15,7 @@ namespace Traversal.ViewComponents.Default
             //foreach (var item in _featureManager.TGetList())
             //{
             //    ViewBag.image = _featureManager.TGetList(item.Title);
-            //}
+            //}.
             return View();
         }
     }
