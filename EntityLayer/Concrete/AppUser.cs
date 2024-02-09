@@ -14,6 +14,6 @@ namespace EntityLayer.Concrete
         public string Surname { get; set; }
         public string? Gender { get; set; }
         public List<Rezervasyon> Rezervasyons { get; set; }
-        public List<Comment> Comments { get; set; }
+        public List<Comment> Commentss { get; set; }
     }
 }

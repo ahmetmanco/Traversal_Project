@@ -9,8 +9,9 @@ namespace Traversal.Controllers
     {
         CommentManager _commentManager = new CommentManager(new EFCommentDal());
         [HttpGet]
-        public PartialViewResult AddComment()
+        public PartialViewResult AddComment(int id)
         {
+            ViewBag.j = id;
             return PartialView();
         }
         [HttpPost]

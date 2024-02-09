@@ -20,5 +20,13 @@ namespace DataAccessLayer.EF
                 return c.Commentss.Include(x=>x.Destination).ToList();
             }
         }
+
+        public List<Comment> GetListCommentwithDestinationAndUser(int id)
+        {
+            using (var c = new Context())
+            {
+                return c.Commentss.Where(x=>x.Id==id).Include(x => x.AppUser).ToList();
+            }
+        }
     }
 }
