@@ -1,4 +1,4 @@
-@SignalRAPI_HostAddress = http://localhost:5147
+@SignalRAPI_HostAddress = http://localhost:5008
 
 GET {{SignalRAPI_HostAddress}}/weatherforecast/
 Accept: application/json
